@@ -1,8 +1,17 @@
+using GeniusIdiotConsoleApp.Data.XML;
+
 namespace GeniusIdiotConsoleApp.Data
 {
     public class DataManager
     {
-        internal List<Question> Questions { get; private set; } = new List<Question>()
+        private List<Question> _questions;
+        internal static string ProjectPath
+        {
+            get => Path.GetFullPath(
+            Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"../../../"));
+        }
+        internal List<Question> Questions { get => _questions; }
+        private List<Question> GetStandartQuestions() => _questions = new List<Question>()
         {
             new Question(0, "Сколько будет два плюс два умноженное на два?", 6),
             new Question(1, "Бревно нужно распилить на 10 частей. Сколько распилов нужно сделать?", 9),
@@ -10,6 +19,12 @@ namespace GeniusIdiotConsoleApp.Data
             new Question(3, "Укол делают каждые полчаса. Сколько нужно минут, чтобы сделать три укола?", 60),
             new Question(4, "Пять свечей горело, две потухли. Сколько свечей осталось?", 3)
         };
+        public DataManager(string pathRelativeProjectSolutionXML)
+        {
+            var temp = XMLManager.ReadXML<Question>(pathRelativeProjectSolutionXML);
+            _questions = temp == null ? GetStandartQuestions() : temp;
+        } 
+        
         internal static Dictionary<double, string> GetDiagnoses(int countQuestions) => new Dictionary<double, string>()
         {
             {0, "кретин"},

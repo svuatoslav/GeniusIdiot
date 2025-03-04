@@ -2,8 +2,4 @@
 using GeniusIdiotConsoleApp.Data;
 using GeniusIdiotConsoleApp.Data.XML;
 
-DataManager dataManager = new DataManager();
-
-XMLManager.WriteXML(dataManager.Questions);
-
-//Questionnaire.FormFilling();
+Questionnaire.FormFilling("Data/XML/XMLFiles/DATA.xml"); // Data/XML/XMLFiles/DATA.xml

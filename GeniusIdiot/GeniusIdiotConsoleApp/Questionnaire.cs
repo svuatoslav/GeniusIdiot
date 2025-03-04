@@ -6,13 +6,13 @@ namespace GeniusIdiotConsoleApp
     public static class Questionnaire
     {
         private static bool _timeElapsed = false;
-        internal static void FormFilling()
+        internal static void FormFilling(string pathRelativeProjectSolutionXML)
         {
             Console.WriteLine("Заполните анкету.\nНапишите сначала фамилию, потом имя через Enter");
 
-            User user = new User(Console.ReadLine(), Console.ReadLine());
-            DataManager data = new DataManager();
-            List<Question> questions = data.Questions;
+            var user = new User(Console.ReadLine(), Console.ReadLine());
+            var data = new DataManager(pathRelativeProjectSolutionXML);
+            var questions = data.Questions;
 
             interviewing(user, questions);
         }
@@ -52,7 +52,7 @@ namespace GeniusIdiotConsoleApp
                 $"c {countCorrectAnswers} правильными ответами, Ваш лучший результат {user.BestResult}." +
                 "\nЕсли хотите повторить напишите \"Yes\"");
             }
-            while (Console.ReadLine().ToLower() == "yes");
+            while (Console.ReadLine()?.ToLower() == "yes");
         }
         private static void OnTimerElapsed(object sender, ElapsedEventArgs e)
         {

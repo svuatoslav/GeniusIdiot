@@ -4,8 +4,8 @@ namespace GeniusIdiotConsoleApp
     {
         public static void ShuffleList<T>(List<T> list)
         {
-            Random rnd = new Random();
-            int n = list.Count;
+            var rnd = new Random();
+            var n = list.Count;
             while (n > 1)
             {
                 n--;
