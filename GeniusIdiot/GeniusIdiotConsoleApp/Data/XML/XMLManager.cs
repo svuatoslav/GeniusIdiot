@@ -4,15 +4,68 @@ namespace GeniusIdiotConsoleApp.Data.XML
 {
     public static class XMLManager
     {
-        internal static void WriteXML<T>(List<T> ListSerialize, string pathRelativeProjectSolution, bool append) where T : class, new()
+        private static string _pathQuestionsXML = "Data/XML/XMLFiles/Questions.xml";
+        private static string _pathUsersXML = "Data/XML/XMLFiles/Users.xml";
+        internal static void WriteXML<T>(List<T> data) where T : class, new()
         {
             var serializerList = new XmlSerializer(typeof(List<T>));
-            var filePath = Path.Combine(DataManager.ProjectPath, pathRelativeProjectSolution);
+            var filePath = Path.Combine(DataManager.ProjectPath, ChoosePath(data[0]));
+
+            Record(data, serializerList, filePath);
+        }
+
+        internal static void WriteXML<T>(T data) where T : class, new()
+        {
+            var serializer = new XmlSerializer(typeof(T));
+            var filePath = Path.Combine(DataManager.ProjectPath, ChoosePath(data));
+
+            Record(data, serializer, filePath);
+        }
+
+        internal static List<T>? ReadXML<T>() where T : class, new()
+        {
+            List<T>? values = null;
+            
             try
             {
-                using (var writer = new StreamWriter(filePath, append))
+                var serializerList = new XmlSerializer(typeof(List<T>));
+                var filePath = Path.Combine(DataManager.ProjectPath, ChoosePath(typeof(T).Name));
+
+                using (var reader = new StreamReader(filePath))
                 {
-                    serializerList.Serialize(writer, ListSerialize);
+                    values = serializerList.Deserialize(reader) as List<T>;
+                }
+            }
+            catch (DirectoryNotFoundException ex)
+            {
+                Console.WriteLine($"The file could not be read:\nIncorrect file path\n{ex.Message}");
+                return values;
+            }
+            catch (FileNotFoundException ex)
+            {
+                Console.WriteLine($"The file could not be read:\nFile Not Found\n{ex.Message}");
+                return values;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"The file could not be read:\n{ex.Message}");
+                return values;
+            }
+
+            return values;
+        }
+
+        private static string ChoosePath<T>(T typeClass) => typeClass is User ? _pathUsersXML : _pathQuestionsXML;
+
+        private static string ChoosePath(string typeClass) => typeClass == "User" ? _pathUsersXML : _pathQuestionsXML;
+
+        private static void Record<T>(T data, XmlSerializer xml, string filePath)
+        {
+            try
+            {
+                using (var writer = new StreamWriter(filePath))
+                {
+                    xml.Serialize(writer, data);
                 }
             }
             catch (DirectoryNotFoundException ex)
@@ -28,33 +81,6 @@ namespace GeniusIdiotConsoleApp.Data.XML
             {
                 Console.WriteLine($"Failed to write a file:\n{ex.Message}");
             }
-        }
-
-        internal static List<T>? ReadXML<T>(string pathRelativeProjectSolution) where T : class, new()
-        {
-            List<T>? values = null;
-            var serializerList = new XmlSerializer(typeof(List<T>));
-            var filePath = Path.Combine(DataManager.ProjectPath, pathRelativeProjectSolution);
-            try
-            {
-                using (var reader = new StreamReader(filePath))
-                {
-                    values = serializerList.Deserialize(reader) as List<T>;
-                }
-            }
-            catch (DirectoryNotFoundException ex)
-            {
-                Console.WriteLine($"The file could not be read:\nIncorrect file path\n{ex.Message}");
-            }
-            catch (FileNotFoundException ex)
-            {
-                Console.WriteLine($"The file could not be read:\nFile Not Found\n{ex.Message}");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"The file could not be read:\n{ex.Message}");
-            }
-            return values;
         }
     }
 }
