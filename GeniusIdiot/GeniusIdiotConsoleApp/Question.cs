@@ -12,7 +12,7 @@ namespace GeniusIdiotConsoleApp
         private static List<Question> _questions;
         public Question(int id, string text, int answer) { Id = id; Text = text; Answer = answer; }
         public Question() { }
-        internal static List<Question> GetQuestions { get => _questions ??= XMLManager.ReadXML<Question>() ?? GetStandartQuestions(); }
+        public static List<Question> Questions { get => _questions ??= XMLManager.ReadXML<Question>() ?? GetStandartQuestions(); }
 
         private static List<Question> GetStandartQuestions() => _questions = new List<Question>()
         {
@@ -22,5 +22,10 @@ namespace GeniusIdiotConsoleApp
             new Question(3, "Укол делают каждые полчаса. Сколько нужно минут, чтобы сделать три укола?", 60),
             new Question(4, "Пять свечей горело, две потухли. Сколько свечей осталось?", 3),
         };
+        internal static void Save(Question question)
+        {
+            Questions.Add(question);
+            XMLManager.WriteXML(_questions);
+        }
     }
 }

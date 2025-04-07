@@ -22,13 +22,11 @@ namespace GeniusIdiotConsoleApp
         }
         public User(string lastName, string firstName) { LastName = lastName; FirstName = firstName; }
         public User() {}
-        internal static List<User> GetUsers => _users ??= XMLManager.ReadXML<User>() ?? new List<User>();
+        public static List<User> Users { get => _users ??= XMLManager.ReadXML<User>() ?? new List<User>(); }
         internal static void Save(User user)
         {
-            var users = XMLManager.ReadXML<User>();
-            users = GetUsers;
-            users.Add(user);
-            XMLManager.WriteXML(GetUsers);
+            Users.Add(user);
+            XMLManager.WriteXML(_users);
         }
     }
 }

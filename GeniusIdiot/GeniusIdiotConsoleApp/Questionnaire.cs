@@ -12,9 +12,9 @@ namespace GeniusIdiotConsoleApp
 
             var user = new User(Console.ReadLine(), Console.ReadLine());
 
-            interviewing(user, Question.GetQuestions);
+            Interviewing(user, Question.Questions);
         }
-        internal static void interviewing(User user, List<Question> questions)
+        internal static void Interviewing(User user, List<Question> questions)
         {
             int countCorrectAnswers;
             do
