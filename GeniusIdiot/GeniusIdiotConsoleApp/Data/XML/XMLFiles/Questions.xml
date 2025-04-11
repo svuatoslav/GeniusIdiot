@@ -25,4 +25,9 @@
     <Text>Пять свечей горело, две потухли. Сколько свечей осталось?</Text>
     <Answer>3</Answer>
   </Question>
+  <Question>
+    <Id>5</Id>
+    <Text>Ответ простой</Text>
+    <Answer>0</Answer>
+  </Question>
 </ArrayOfQuestion>

@@ -59,5 +59,22 @@ namespace GeniusIdiotConsoleApp
             Console.WriteLine("Время истекло, нажмите Enter");
             _timeElapsed = true;
         }
+        internal static void Edit()
+        {
+            Console.WriteLine("Это редактор вопросника!");
+            Console.WriteLine("Добавить вопросы?");
+
+            if (Console.ReadLine()?.ToLower() == "yes")
+                Question.AddQuestion();
+
+            Console.WriteLine("Удалить вопросы?");
+
+            if (Console.ReadLine()?.ToLower() == "yes")
+                Question.RemoveQuestion();
+
+            Question.Save();
+
+        }
+
     }
 }

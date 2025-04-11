@@ -1,3 +1,6 @@
+using System;
+using System.Xml;
+
 namespace GeniusIdiotConsoleApp
 {
     public static class GeneralMethods
@@ -16,18 +19,55 @@ namespace GeniusIdiotConsoleApp
             }
         }
 
-        public static int CheckInt(string text, bool limiter)
+        public static int CheckInt(string? text, bool limiter, string errorMessage = "Пожалуйста, введите целое число!")
         {
             int answer = 0;
             if (limiter)
             {
                 while (!int.TryParse(text, out answer))
                 {
-                    Console.WriteLine("Пожалуйста, введите целое число!");
+                    Console.WriteLine(errorMessage);
                     text = Console.ReadLine();
                 }
             }
             return answer;
+        }
+        public static int CheckInt(string? text, string errorMessage = "Пожалуйста, введите целое число!")
+        {
+            int answer;
+
+            while (!int.TryParse(text, out answer))
+            {
+                Console.WriteLine(errorMessage);
+                text = Console.ReadLine();
+            }
+
+            return answer;
+        }
+        public static double CheckDouble(string? text, string errorMessage = "Пожалуйста, введите число!")
+        {
+            double answer;
+
+            while (!double.TryParse(text, out answer))
+            {
+                Console.WriteLine(errorMessage);
+                text = Console.ReadLine();
+            }
+
+            return answer;
+        }
+        public static T CheckNumber<T>(string? text, string errorMessage = "Пожалуйста, введите число!") 
+            where T : IParsable<T> // probloms if string ?
+        {
+            T? result;
+
+            while (!T.TryParse(text, null, out result))
+            {
+                Console.WriteLine(errorMessage);
+                text = Console.ReadLine();
+            }
+
+            return result;
         }
     }
 }

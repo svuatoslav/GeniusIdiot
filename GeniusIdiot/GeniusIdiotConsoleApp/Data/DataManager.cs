@@ -1,5 +1,3 @@
-using GeniusIdiotConsoleApp.Data.XML;
-
 namespace GeniusIdiotConsoleApp.Data
 {
     public static class DataManager
