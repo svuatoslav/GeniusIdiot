@@ -62,7 +62,13 @@ namespace GeniusIdiotConsoleApp
         internal static void Edit()
         {
             Console.WriteLine("Это редактор вопросника!");
-            Console.WriteLine("Добавить вопросы?\nНеобходимо написать \"Yes\"");
+
+            Console.WriteLine("Написать список вопросов?\nНеобходимо написать \"Yes\"");
+
+            if (Console.ReadLine()?.ToLower() == "yes")
+                Question.PrintQuestions();
+
+                Console.WriteLine("Добавить вопросы?\nНеобходимо написать \"Yes\"");
 
             if (Console.ReadLine()?.ToLower() == "yes")
                 Question.AddQuestion();

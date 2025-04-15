@@ -4,7 +4,7 @@ using GeniusIdiotConsoleApp.Data.XML;
 using System.Linq;
 
 
-// Questionnaire.FormFilling(); // Data/XML/XMLFiles/DATA.xml
+Questionnaire.FormFilling(); // Data/XML/XMLFiles/DATA.xml
 
 Questionnaire.Edit();
 
