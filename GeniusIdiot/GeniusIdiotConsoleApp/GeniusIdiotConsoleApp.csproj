@@ -7,4 +7,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Data\XML\**" />
+    <EmbeddedResource Remove="Data\XML\**" />
+    <None Remove="Data\XML\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\GeniusIdiot.Common\GeniusIdiot.Common.csproj" />
+  </ItemGroup>
+
 </Project>

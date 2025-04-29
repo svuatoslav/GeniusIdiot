@@ -1,12 +1,15 @@
 ﻿using GeniusIdiotConsoleApp;
-using GeniusIdiotConsoleApp.Data;
-using GeniusIdiotConsoleApp.Data.XML;
-using System.Linq;
+using GeniusIdiot.Common;
 
-int[] Numbers = [-11, - 12, 13, 14];
+FileLogger _ = new(Path.Combine(StoragePath.ProjectPath, "Logs.txt"));
 
-var M = Numbers.Where(numbers => numbers % 2 == 1);
+var message = new MessageManager();
 
-Console.WriteLine(string.Join(" ", M));
+Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
 
-// Questionnaire.FormFilling(); // Data/XML/XMLFiles/DATA.xml
+Test test = new(Question.Questions, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage)); // Data/XML/XMLFiles/DATA.xml
+
+test.Testing();
+
+Editor.EditTests(test, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
