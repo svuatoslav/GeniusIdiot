@@ -1,7 +1,4 @@
-using GeniusIdiotConsoleApp.Data.XML;
-using System.Xml.Serialization;
-
-namespace GeniusIdiotConsoleApp
+namespace GeniusIdiot.Common
 {
     [Serializable]
     public class User
@@ -21,12 +18,8 @@ namespace GeniusIdiotConsoleApp
             }
         }
         public User(string lastName, string firstName) { LastName = lastName; FirstName = firstName; }
-        public User() {}
-        public static List<User> Users { get => _users ??= XMLManager.ReadXML<User>() ?? new List<User>(); }
-        internal static void Save(User user)
-        {
-            Users.Add(user);
-            XMLManager.WriteXML(_users);
-        }
+        public User() { }
+        public static List<User> Users { get => _users ??= XMLManager.ReadXML<User>(string.Empty) ?? new List<User>(); }
+        public static void GetUsersFromFileXML(string xmlStoragePath) => _users ??= XMLManager.ReadXML<User>(xmlStoragePath) ?? new List<User>();
     }
 }

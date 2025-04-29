@@ -1,10 +1,15 @@
 ﻿using GeniusIdiotConsoleApp;
-using GeniusIdiotConsoleApp.Data;
-using GeniusIdiotConsoleApp.Data.XML;
-using System.Linq;
+using GeniusIdiot.Common;
 
+FileLogger _ = new(Path.Combine(StoragePath.ProjectPath, "Logs.txt"));
 
-Questionnaire.FormFilling(); // Data/XML/XMLFiles/DATA.xml
+var message = new MessageManager();
 
-Questionnaire.Edit();
+Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
 
+Test test = new(Question.Questions, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage)); // Data/XML/XMLFiles/DATA.xml
+
+test.Testing();
+
+Editor.EditTests(test, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
