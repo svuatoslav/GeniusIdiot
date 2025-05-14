@@ -7,7 +7,7 @@ namespace GeniusIdiot.Common
         public int Id { get { return _id; } init { _id = value; } }
         public string Text { get; init; }
         public int Answer { get; init; }
-        private static List<Question> _questions;
+        private static List<Question>? _questions;
         public Question(int id, string text, int answer) : this(text, answer) => Id = id;
         public Question(string text, int answer) : this() { Text = text; Answer = answer; }
         public Question() { }
@@ -21,7 +21,7 @@ namespace GeniusIdiot.Common
             new(3, "Укол делают каждые полчаса. Сколько нужно минут, чтобы сделать три укола?", 60),
             new(4, "Пять свечей горело, две потухли. Сколько свечей осталось?", 3),
         };
-        internal static void Save(string xmlStoragePath)
+        public static void Save(string xmlStoragePath)
         {
             RemoveDuplicatesByText();
 
@@ -34,7 +34,7 @@ namespace GeniusIdiot.Common
             CreateUniqueId();
 
         }
-        internal static void CreateUniqueId()
+        public static void CreateUniqueId()
         {
             for (int i = 0; i < Questions.Count; i++)
                 _questions[i]._id = i;

@@ -8,7 +8,7 @@ var message = new MessageManager();
 Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
 User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
 
-Test test = new(Question.Questions, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage)); // Data/XML/XMLFiles/DATA.xml
+TestApp test = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage)); // Data/XML/XMLFiles/DATA.xml
 
 test.Testing();
 

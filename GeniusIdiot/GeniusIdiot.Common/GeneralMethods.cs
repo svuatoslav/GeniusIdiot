@@ -16,7 +16,7 @@ namespace GeniusIdiot.Common
             }
         }
 
-        public static int? CheckInt(string? text, bool limiter, IMessage message, string errorMessage = "Пожалуйста, введите целое число!")
+        public static int? CheckInt(string? text, ref bool limiter, IMessage message, string errorMessage = "Пожалуйста, введите целое число!")
         {
             if (limiter)
             {

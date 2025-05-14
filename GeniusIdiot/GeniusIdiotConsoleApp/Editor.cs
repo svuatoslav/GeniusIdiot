@@ -1,8 +1,10 @@
-﻿namespace GeniusIdiot.Common
+﻿using GeniusIdiot.Common;
+
+namespace GeniusIdiotConsoleApp
 {
-    public static class Editor
+    public class Editor
     {
-        public static void EditTests(Test test, IMessage message, string pathSave)
+        public static void EditTests(TestApp test, IMessage message, string pathSave)
         {
             message.Write("Это редактор вопросника!");
 
