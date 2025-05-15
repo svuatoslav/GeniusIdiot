@@ -10,15 +10,15 @@ namespace GeniusIdiotWinFormsApp
             InitializeComponent();
             MainMenuForm = this;
 
-            var _ = new FileLogger(Path.Combine(StoragePath.ProjectPath, "Logs.txt"));
+            var _ = new FileLogger(Path.Combine(StoragePath.ProjectPath, StoragePath.PathLogs));
         }
         private void StartTestButton_Click(object sender, EventArgs e)
         {
             var registrationForm = new RegistrationForm();
             registrationForm.ShowDialog();
 
-            Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
-            User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+            Question.GetQuestionsFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
+            User.GetUsersFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
 
             var testForm = new TestForm(registrationForm.User);
             testForm.ShowDialog();
@@ -26,7 +26,7 @@ namespace GeniusIdiotWinFormsApp
 
         private void EditButton_Click(object sender, EventArgs e)
         {
-            Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+            Question.GetQuestionsFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
             var editorForm = new EditorForm();
             editorForm.ShowDialog();
             //GeniusIdiot.Common.EditTests();
@@ -36,7 +36,7 @@ namespace GeniusIdiotWinFormsApp
 
         private void Results_Click(object sender, EventArgs e)
         {
-            User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+            User.GetUsersFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
             var resultsForm = new ResultsForm();
             resultsForm.ShowDialog();
         }

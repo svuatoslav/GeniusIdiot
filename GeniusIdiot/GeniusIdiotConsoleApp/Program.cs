@@ -1,15 +1,15 @@
 ﻿using GeniusIdiotConsoleApp;
 using GeniusIdiot.Common;
 
-FileLogger _ = new(Path.Combine(StoragePath.ProjectPath, "Logs.txt"));
+FileLogger _ = new(Path.Combine(StoragePath.ProjectPath, StoragePath.PathLogs));
 
 var message = new MessageManager();
 
-Question.GetQuestionsFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
-User.GetUsersFromFileXML(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+Question.GetQuestionsFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
+User.GetUsersFromFileJSON(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
 
-TestApp test = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage)); // Data/XML/XMLFiles/DATA.xml
+TestApp test = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage)); // Data/XML/XMLFiles/DATA.xml
 
 test.Testing();
 
-Editor.EditTests(test, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+Editor.EditTests(test, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
