@@ -1,4 +1,6 @@
 ﻿using GeniusIdiot.Common;
+using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace GeniusIdiotWinFormsApp
 {
@@ -52,7 +54,7 @@ namespace GeniusIdiotWinFormsApp
 
         private void NextQuestionbutton_Click(object sender, EventArgs e)
         {
-            int? answer = GeneralMethods.CheckInt(AnswerToQuestionTextBox.Text, ref _timer, _message);
+            int? answer = _timer && AnswerToQuestionTextBox.Text != "" ? int.Parse(AnswerToQuestionTextBox.Text) : null;
 
             Question? question = _myTest.NextQuestion(_user, answer, ref _countCorrectAnswers);
 
@@ -93,5 +95,15 @@ namespace GeniusIdiotWinFormsApp
             RestartTestButton.Enabled = activity;
             FinishTestButton.Enabled = activity;
         }
+
+        private void AnswerToQuestionTextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!int.TryParse(e.KeyChar.ToString(), out int _) && e.KeyChar != '\b')
+            {
+                _message.Write("Пожалуйста, вводите цифры");
+                e.Handled = true;
+            }
+        }
+
     }
 }

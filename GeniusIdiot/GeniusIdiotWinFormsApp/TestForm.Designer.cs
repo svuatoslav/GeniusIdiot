@@ -73,6 +73,7 @@
             AnswerToQuestionTextBox.Name = "AnswerToQuestionTextBox";
             AnswerToQuestionTextBox.Size = new Size(293, 33);
             AnswerToQuestionTextBox.TabIndex = 3;
+            AnswerToQuestionTextBox.KeyPress += AnswerToQuestionTextBox_KeyPress;
             // 
             // QuestionTimer
             // 
