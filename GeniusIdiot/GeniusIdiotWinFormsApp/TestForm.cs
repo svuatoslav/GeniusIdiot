@@ -21,7 +21,7 @@ namespace GeniusIdiotWinFormsApp
 
             SwitchingButtons(false);
 
-            _myTest = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+            _myTest = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
 
             QuestionTextLabel.Text = _myTest.Questions[0].Text;
             QuestionTimer.Start();
@@ -40,7 +40,7 @@ namespace GeniusIdiotWinFormsApp
         {
             SwitchingButtons(false);
 
-            _myTest.RestertTest();
+            _myTest.RestartTest();
             QuestionTextLabel.Text = _myTest.Questions[0].Text;
 
             _timer = true;

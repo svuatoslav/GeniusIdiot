@@ -16,7 +16,7 @@ namespace GeniusIdiotWinFormsApp
 
         private void SaveQuestions_Click(object sender, EventArgs e)
         {
-            Question.Save(Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
+            Question.Save(Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
             Close();
         }
 

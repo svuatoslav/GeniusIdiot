@@ -6,7 +6,11 @@ namespace GeniusIdiotWinFormsApp
     {
         private readonly string _pathLogs = "Logs.txt";
 
-        public FileLogger() => XMLManager.Logger = this;
+        public FileLogger()
+        {
+            XMLManager.Logger = this;
+            JSONManager.Logger = this;
+        }
 
         public FileLogger(string PathLoggs) : this() => _pathLogs = PathLoggs;
 

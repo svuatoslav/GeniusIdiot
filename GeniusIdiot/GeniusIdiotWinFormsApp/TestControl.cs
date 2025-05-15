@@ -34,7 +34,7 @@ namespace GeniusIdiotWinFormsApp
             }
         }
 
-        internal void RestertTest() => _questionCounter = 0;
+        internal void RestartTest() => _questionCounter = 0;
 
         internal void Save(User user) => SaveResults(user, _rootPathFiles);
     }

@@ -38,7 +38,7 @@ namespace GeniusIdiot.Common
         protected static void SaveResults(User user, string pathSave)
         {
             User.Users.Add(user);
-            XMLManager.WriteXML(pathSave, User.Users);
+            JSONManager.WriteJSON(pathSave, User.Users);
         }
 
         abstract protected void Interviewing(User user, int countCorrectAnswers = 0);
