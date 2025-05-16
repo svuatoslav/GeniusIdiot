@@ -3,10 +3,7 @@ namespace GeniusIdiot.Common
     [Serializable]
     public class Question
     {
-        private int _id;
-        
-        public int Id { get { return _id; } init { _id = value; } }
-        
+        public int Id { get; set; }
         public string Text { get; init; }
         
         public int Answer { get; init; }
@@ -52,7 +49,7 @@ namespace GeniusIdiot.Common
         public static void CreateUniqueId()
         {
             for (int i = 0; i < Questions.Count; i++)
-                _questions[i]._id = i;
+                _questions[i].Id = i;
         }
     }
 }

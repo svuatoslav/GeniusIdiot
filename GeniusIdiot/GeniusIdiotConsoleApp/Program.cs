@@ -1,7 +1,7 @@
 ﻿using GeniusIdiotConsoleApp;
 using GeniusIdiot.Common;
 
-FileLogger _ = new(Path.Combine(StoragePath.ProjectPath, StoragePath.PathLogs));
+FileLogger.Path = StoragePath.PathLogs;
 
 var message = new MessageManager();
 
@@ -12,4 +12,4 @@ TestApp test = new(Question.Questions, Path.Combine(StoragePath.ProjectPath, Sto
 
 test.Testing();
 
-Editor.EditTests(test, message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathJSONsStorage));
+Editor.EditTests(message, Path.Combine(StoragePath.ProjectPath, StoragePath.PathXMLsStorage));
