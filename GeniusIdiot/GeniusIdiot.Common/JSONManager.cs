@@ -5,9 +5,6 @@ namespace GeniusIdiot.Common
 {
     public static class JSONManager
     {
-
-        private static ILogger _logger;
-        public static ILogger Logger { set { _logger = value; } }
         public static void WriteJSON<T>(string path, List<T> data) where T : class
         {
             string json = JsonConvert.SerializeObject(data, Formatting.Indented);
@@ -17,7 +14,7 @@ namespace GeniusIdiot.Common
             try 
             { File.WriteAllText(fullPath, json); }
             catch (IOException ex) 
-            { _logger.LogError($"Failed to write a file:\n{ex.Message}"); }
+            { FileLogger.LogError($"Failed to write a file:\n{ex.Message}"); }
         }
 
         public static List<T>? ReadJSON<T>(string path) where T : class
@@ -34,7 +31,7 @@ namespace GeniusIdiot.Common
             }
             catch (IOException ex)
             {
-                _logger.LogError($"The file could not be read:\n{ex.Message}");
+                FileLogger.LogError($"The file could not be read:\n{ex.Message}");
                 return values;
             }
 

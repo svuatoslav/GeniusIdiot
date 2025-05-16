@@ -25,6 +25,7 @@ namespace GeniusIdiotConsoleApp
 
             Question.Save(pathSave);
         }
+
         private static void AddQuestion(IMessage message)
         {
             string text;
@@ -45,6 +46,7 @@ namespace GeniusIdiotConsoleApp
             message.Write("Присвивание уникальных id....");
             Question.CreateUniqueId();
         }
+
         private static void RemoveQuestion(IMessage message)
         {
             int id;

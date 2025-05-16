@@ -1,5 +1,4 @@
 using GeniusIdiot.Common;
-using System.Windows.Forms;
 
 namespace GeniusIdiotWinFormsApp
 {

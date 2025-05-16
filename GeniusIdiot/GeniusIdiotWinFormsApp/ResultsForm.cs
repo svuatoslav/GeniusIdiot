@@ -9,6 +9,7 @@ namespace GeniusIdiotWinFormsApp
             InitializeComponent();
             LoadUsers();
         }
+
         private void LoadUsers()
         {
             foreach (var user in User.Users)
@@ -19,7 +20,6 @@ namespace GeniusIdiotWinFormsApp
 
                 UsersListView.Items.Add(lvi);
             }
-
         }
 
         private void Exit_Click(object sender, EventArgs e) => Close();

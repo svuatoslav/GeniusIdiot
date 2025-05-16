@@ -7,11 +7,13 @@ namespace GeniusIdiotConsoleApp
     {
         private MessageManager _message = new();
         private bool _timeUp = true;
+
         public TestApp(List<Question> questions, string rootPathFiles) 
         {
             Questions = questions;
             _rootPathFiles = rootPathFiles;
         }
+
         internal void Testing()
         {
             var user = FormFilling();
@@ -20,6 +22,7 @@ namespace GeniusIdiotConsoleApp
 
             SaveResults(user, _rootPathFiles);
         }
+
         private User FormFilling()
         {
             _message.Write("Заполните анкету.\nНапишите сначала фамилию, потом имя через Enter");

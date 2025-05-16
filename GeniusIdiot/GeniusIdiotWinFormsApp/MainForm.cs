@@ -4,15 +4,13 @@ namespace GeniusIdiotWinFormsApp
 {
     public partial class MainForm : Form
     {
-        internal static MainForm MainMenuForm { get; private set; }
         public MainForm()
         {
             InitializeComponent();
-            MainMenuForm = this;
 
             FileLogger.Path = StoragePath.PathLogs;
-            
         }
+
         private void StartTestButton_Click(object sender, EventArgs e)
         {
             var registrationForm = new RegistrationForm();

@@ -8,9 +8,11 @@ namespace GeniusIdiotWinFormsApp
         private int _time = 0;
         private int _countCorrectAnswers = 0;
         private TestControl MyTest { get; init; }
+
         private User User { get; init; }
 
         private bool _timer = true;
+
         private readonly MessageManager _message;
 
         private TestForm()
@@ -40,7 +42,7 @@ namespace GeniusIdiotWinFormsApp
         {
             SwitchingButtons(false);
 
-            MyTest.RestertTest();
+            MyTest.RestartTest();
             QuestionTextLabel.Text = MyTest.Questions[0].Text;
 
             _timer = true;

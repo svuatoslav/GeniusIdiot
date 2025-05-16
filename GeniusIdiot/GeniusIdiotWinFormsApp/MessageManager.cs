@@ -5,6 +5,7 @@ namespace GeniusIdiotWinFormsApp
     internal class MessageManager : IMessage
     {
         internal TextBox TextBox { get; set; }
+
         public string Read() => TextBox.Text;
 
         public void Write(string message) => MessageBox.Show(message);

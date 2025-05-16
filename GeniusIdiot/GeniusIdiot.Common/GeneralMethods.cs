@@ -33,6 +33,7 @@ namespace GeniusIdiot.Common
             else
                 return null;
         }
+
         public static int CheckInt(string? text, IMessage message, string errorMessage = "Пожалуйста, введите целое число!")
         {
             int answer;
@@ -45,6 +46,7 @@ namespace GeniusIdiot.Common
 
             return answer;
         }
+
         public static double CheckDouble(string? text, IMessage message, string errorMessage = "Пожалуйста, введите число!")
         {
             double answer;
@@ -57,6 +59,7 @@ namespace GeniusIdiot.Common
 
             return answer;
         }
+
         public static T CheckNumber<T>(string? text, IMessage message, string errorMessage = "Пожалуйста, введите число!")
             where T : IParsable<T> // probloms if string ?
         {
