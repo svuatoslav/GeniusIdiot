@@ -11,9 +11,5 @@
     <LastName>C</LastName>
     <LevelKnowledge>дурак</LevelKnowledge>
     <BestResult>3</BestResult>
-    <FirstName>e</FirstName>
-    <LastName>e</LastName>
-    <LevelKnowledge>нормальный</LevelKnowledge>
-    <BestResult>4</BestResult>
   </User>
 </ArrayOfUser>

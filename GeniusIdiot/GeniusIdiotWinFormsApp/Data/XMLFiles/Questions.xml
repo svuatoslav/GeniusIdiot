@@ -16,11 +16,6 @@
     <Answer>25</Answer>
   </Question>
   <Question>
-<<<<<<<< HEAD:GeniusIdiot/GeniusIdiotWinFormsApp/Data/XMLFiles/Questions.xml
-    <Id>5</Id>
-    <Text>Ответ простой</Text>
-    <Answer>0</Answer>
-========
     <Id>3</Id>
     <Text>Укол делают каждые полчаса. Сколько нужно минут, чтобы сделать три укола?</Text>
     <Answer>60</Answer>
@@ -34,8 +29,5 @@
     <Id>5</Id>
     <Text>Дай пять!</Text>
     <Answer>5</Answer>
->>>>>>>> Moskalenko__lesson4:GeniusIdiot/GeniusIdiotConsoleApp/Data/XMLFiles/Questions.xml
-    <Text>Ответ простой</Text>
-    <Answer>0</Answer>
   </Question>
 </ArrayOfQuestion>
