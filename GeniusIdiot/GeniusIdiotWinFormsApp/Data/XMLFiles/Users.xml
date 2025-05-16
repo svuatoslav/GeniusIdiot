@@ -6,4 +6,10 @@
     <LevelKnowledge>идиот</LevelKnowledge>
     <BestResult>1</BestResult>
   </User>
+  <User>
+    <FirstName>M</FirstName>
+    <LastName>C</LastName>
+    <LevelKnowledge>дурак</LevelKnowledge>
+    <BestResult>3</BestResult>
+  </User>
 </ArrayOfUser>

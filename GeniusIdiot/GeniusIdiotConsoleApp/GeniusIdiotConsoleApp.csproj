@@ -17,4 +17,8 @@
     <ProjectReference Include="..\GeniusIdiot.Common\GeniusIdiot.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Data\JSONFiles\" />
+  </ItemGroup>
+
 </Project>

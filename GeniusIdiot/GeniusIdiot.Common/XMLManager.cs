@@ -4,8 +4,6 @@ namespace GeniusIdiot.Common
 {
     public static class XMLManager
     {
-        private static ILogger _logger;
-        public static ILogger Logger { set { _logger = value; } }
         public static void WriteXML<T>(string path, List<T> data) where T : class, new()
         {
             var serializerList = new XmlSerializer(typeof(List<T>));
@@ -41,17 +39,17 @@ namespace GeniusIdiot.Common
             }
             catch (DirectoryNotFoundException ex)
             {
-                _logger.LogError($"The file could not be read:\nIncorrect file path\n{ex.Message}");
+                FileLogger.LogError($"The file could not be read:\nIncorrect file path\n{ex.Message}");
                 return values;
             }
             catch (FileNotFoundException ex)
             {
-                _logger.LogError($"The file could not be read:\nFile Not Found\n{ex.Message}");
+                FileLogger.LogError($"The file could not be read:\nFile Not Found\n{ex.Message}");
                 return values;
             }
             catch (Exception ex)
             {
-                _logger.LogError($"The file could not be read:\n{ex.Message}");
+                FileLogger.LogError($"The file could not be read:\n{ex.Message}");
                 return values;
             }
 
@@ -73,16 +71,16 @@ namespace GeniusIdiot.Common
             }
             catch (DirectoryNotFoundException ex)
             {
-                _logger.LogError($"The file could not be read:\nIncorrect file path\n{ex.Message}");
+                FileLogger.LogError($"The file could not be read:\nIncorrect file path\n{ex.Message}");
             }
             catch (InvalidOperationException ex)
             {
-                _logger.LogError("The file could not be read:\n" +
+                FileLogger.LogError("The file could not be read:\n" +
                 $"The class has no constructor without parameters.\n{ex.Message}");
             }
             catch (Exception ex)
             {
-                _logger.LogError($"Failed to write a file:\n{ex.Message}");
+                FileLogger.LogError($"Failed to write a file:\n{ex.Message}");
             }
         }
     }

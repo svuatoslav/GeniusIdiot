@@ -1,6 +1,4 @@
-using GeniusIdiot.Common;
-
-namespace GeniusIdiotConsoleApp
+namespace GeniusIdiotWinFormsApp
 {
     public static class StoragePath
     {

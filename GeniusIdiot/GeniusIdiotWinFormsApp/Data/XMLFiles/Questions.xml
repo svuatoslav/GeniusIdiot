@@ -27,7 +27,7 @@
   </Question>
   <Question>
     <Id>5</Id>
-    <Text>Ответ простой</Text>
-    <Answer>0</Answer>
+    <Text>Дай пять!</Text>
+    <Answer>5</Answer>
   </Question>
 </ArrayOfQuestion>
