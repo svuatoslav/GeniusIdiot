@@ -10,7 +10,8 @@ namespace GeniusIdiotWinFormsApp
             InitializeComponent();
             MainMenuForm = this;
 
-            var _ = new FileLogger(Path.Combine(StoragePath.ProjectPath, "Logs.txt"));
+            FileLogger.Path = StoragePath.PathLogs;
+            
         }
         private void StartTestButton_Click(object sender, EventArgs e)
         {
