@@ -16,6 +16,11 @@
     <Answer>3</Answer>
   </Question>
   <Question>
+<<<<<<<< HEAD:GeniusIdiot/GeniusIdiotWinFormsApp/Data/XMLFiles/Questions.xml
+    <Id>5</Id>
+    <Text>Ответ простой</Text>
+    <Answer>0</Answer>
+========
     <Id>3</Id>
     <Text>Бревно нужно распилить на 10 частей. Сколько распилов нужно сделать?</Text>
     <Answer>9</Answer>
@@ -29,5 +34,6 @@
     <Id>5</Id>
     <Text>Дай пять!</Text>
     <Answer>5</Answer>
+>>>>>>>> Moskalenko__lesson4:GeniusIdiot/GeniusIdiotConsoleApp/Data/XMLFiles/Questions.xml
   </Question>
 </ArrayOfQuestion>
