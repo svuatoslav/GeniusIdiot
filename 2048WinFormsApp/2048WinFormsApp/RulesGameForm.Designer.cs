@@ -28,14 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ButtionRestart = new Button();
+            listView1 = new ListView();
+            treeView1 = new TreeView();
             SuspendLayout();
+            // 
+            // ButtionRestart
+            // 
+            ButtionRestart.BackColor = SystemColors.WindowText;
+            ButtionRestart.ForeColor = SystemColors.Window;
+            ButtionRestart.Location = new Point(963, 575);
+            ButtionRestart.Name = "ButtionRestart";
+            ButtionRestart.Size = new Size(225, 75);
+            ButtionRestart.TabIndex = 10;
+            ButtionRestart.Text = "Закрыть";
+            ButtionRestart.UseVisualStyleBackColor = false;
+            ButtionRestart.Click += ButtionRestart_Click;
+            // 
+            // listView1
+            // 
+            listView1.Location = new Point(290, 159);
+            listView1.Name = "listView1";
+            listView1.Size = new Size(121, 97);
+            listView1.TabIndex = 11;
+            listView1.UseCompatibleStateImageBehavior = false;
+            // 
+            // treeView1
+            // 
+            treeView1.Location = new Point(689, 400);
+            treeView1.Name = "treeView1";
+            treeView1.Size = new Size(121, 97);
+            treeView1.TabIndex = 12;
             // 
             // RulesGameForm
             // 
-            AutoScaleDimensions = new SizeF(15F, 38F);
+            AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1200, 684);
+            Controls.Add(treeView1);
+            Controls.Add(listView1);
+            Controls.Add(ButtionRestart);
             Font = new Font("Segoe UI", 14F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(4, 5, 4, 5);
             Name = "RulesGameForm";
@@ -44,5 +77,9 @@
         }
 
         #endregion
+
+        private Button ButtionRestart;
+        private ListView listView1;
+        private TreeView treeView1;
     }
 }

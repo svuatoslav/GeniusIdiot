@@ -16,5 +16,7 @@ namespace _2048WinFormsApp
         {
             InitializeComponent();
         }
+
+        private void ButtionRestart_Click(object sender, EventArgs e) => Application.Exit();
     }
 }

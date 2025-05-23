@@ -33,24 +33,24 @@
             ButtionRestart = new Button();
             ButtonRulesGame = new Button();
             LabelBorder = new Label();
-            LabelRecord = new Label();
-            LabelPoints = new Label();
-            label1 = new Label();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
+            LabelViewRecord = new Label();
+            LabelVeiwScore = new Label();
+            tableLayoutPanelField = new TableLayoutPanel();
+            labelScore = new Label();
+            labelRecord = new Label();
             SuspendLayout();
             // 
             // LabelCell
             // 
+            LabelCell.AutoSize = true;
             LabelCell.BackColor = SystemColors.WindowText;
             LabelCell.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LabelCell.Location = new Point(200, 200);
+            LabelCell.Location = new Point(855, 122);
+            LabelCell.MinimumSize = new Size(100, 100);
             LabelCell.Name = "LabelCell";
             LabelCell.Size = new Size(100, 100);
             LabelCell.TabIndex = 0;
-            LabelCell.Text = "2048";
+            LabelCell.Text = "0";
             LabelCell.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // ButtinExit
@@ -63,7 +63,7 @@
             ButtinExit.TabIndex = 8;
             ButtinExit.Text = "Выход";
             ButtinExit.UseVisualStyleBackColor = false;
-            ButtinExit.Click += ButtinExit_Click;
+            ButtinExit.Click += ButtonExit_Click;
             // 
             // ButtionRestart
             // 
@@ -87,6 +87,7 @@
             ButtonRulesGame.TabIndex = 10;
             ButtonRulesGame.Text = "Правила игры";
             ButtonRulesGame.UseVisualStyleBackColor = false;
+            ButtonRulesGame.Click += ButtonRulesGame_Click;
             // 
             // LabelBorder
             // 
@@ -97,94 +98,80 @@
             LabelBorder.Size = new Size(10, 925);
             LabelBorder.TabIndex = 11;
             // 
-            // LabelRecord
+            // LabelViewRecord
             // 
-            LabelRecord.AutoSize = true;
-            LabelRecord.ForeColor = SystemColors.WindowText;
-            LabelRecord.Location = new Point(600, 40);
-            LabelRecord.Name = "LabelRecord";
-            LabelRecord.Size = new Size(222, 40);
-            LabelRecord.TabIndex = 12;
-            LabelRecord.Text = "Рекорд: 999999";
+            LabelViewRecord.AutoSize = true;
+            LabelViewRecord.ForeColor = SystemColors.WindowText;
+            LabelViewRecord.Location = new Point(600, 40);
+            LabelViewRecord.Name = "LabelViewRecord";
+            LabelViewRecord.Size = new Size(78, 25);
+            LabelViewRecord.TabIndex = 12;
+            LabelViewRecord.Text = "Рекорд:";
             // 
-            // LabelPoints
+            // LabelVeiwScore
             // 
-            LabelPoints.AutoSize = true;
-            LabelPoints.ForeColor = SystemColors.WindowText;
-            LabelPoints.Location = new Point(200, 40);
-            LabelPoints.Name = "LabelPoints";
-            LabelPoints.Size = new Size(196, 40);
-            LabelPoints.TabIndex = 13;
-            LabelPoints.Text = "Очки: 999999";
+            LabelVeiwScore.AutoSize = true;
+            LabelVeiwScore.ForeColor = SystemColors.WindowText;
+            LabelVeiwScore.Location = new Point(200, 40);
+            LabelVeiwScore.Name = "LabelVeiwScore";
+            LabelVeiwScore.Size = new Size(61, 25);
+            LabelVeiwScore.TabIndex = 13;
+            LabelVeiwScore.Text = "Очки:";
             // 
-            // label1
+            // tableLayoutPanelField
             // 
-            label1.BackColor = SystemColors.WindowText;
-            label1.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(800, 800);
-            label1.Name = "label1";
-            label1.Size = new Size(100, 100);
-            label1.TabIndex = 14;
-            label1.Text = "2048";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
+            tableLayoutPanelField.AutoScroll = true;
+            tableLayoutPanelField.AutoSize = true;
+            tableLayoutPanelField.CellBorderStyle = TableLayoutPanelCellBorderStyle.OutsetPartial;
+            tableLayoutPanelField.ColumnCount = 4;
+            tableLayoutPanelField.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelField.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelField.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelField.ColumnStyles.Add(new ColumnStyle());
+            tableLayoutPanelField.Location = new Point(300, 250);
+            tableLayoutPanelField.MinimumSize = new Size(100, 100);
+            tableLayoutPanelField.Name = "tableLayoutPanelField";
+            tableLayoutPanelField.RowCount = 4;
+            tableLayoutPanelField.RowStyles.Add(new RowStyle());
+            tableLayoutPanelField.RowStyles.Add(new RowStyle());
+            tableLayoutPanelField.RowStyles.Add(new RowStyle());
+            tableLayoutPanelField.RowStyles.Add(new RowStyle());
+            tableLayoutPanelField.Size = new Size(300, 300);
+            tableLayoutPanelField.TabIndex = 19;
             // 
-            // label2
+            // labelScore
             // 
-            label2.BackColor = SystemColors.WindowText;
-            label2.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(600, 200);
-            label2.Name = "label2";
-            label2.Size = new Size(100, 100);
-            label2.TabIndex = 15;
-            label2.Text = "2048";
-            label2.TextAlign = ContentAlignment.MiddleCenter;
+            labelScore.AutoSize = true;
+            labelScore.ForeColor = SystemColors.WindowText;
+            labelScore.Location = new Point(267, 40);
+            labelScore.MinimumSize = new Size(100, 25);
+            labelScore.Name = "labelScore";
+            labelScore.Size = new Size(100, 25);
+            labelScore.TabIndex = 20;
+            labelScore.Text = "0";
             // 
-            // label3
+            // labelRecord
             // 
-            label3.BackColor = SystemColors.WindowText;
-            label3.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(200, 800);
-            label3.Name = "label3";
-            label3.Size = new Size(100, 100);
-            label3.TabIndex = 16;
-            label3.Text = "2048";
-            label3.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label4
-            // 
-            label4.BackColor = SystemColors.WindowText;
-            label4.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label4.Location = new Point(400, 200);
-            label4.Name = "label4";
-            label4.Size = new Size(100, 100);
-            label4.TabIndex = 17;
-            label4.Text = "2048";
-            label4.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // label5
-            // 
-            label5.BackColor = SystemColors.WindowText;
-            label5.Font = new Font("Tahoma", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(800, 200);
-            label5.Name = "label5";
-            label5.Size = new Size(100, 100);
-            label5.TabIndex = 18;
-            label5.Text = "2048";
-            label5.TextAlign = ContentAlignment.MiddleCenter;
+            labelRecord.AutoSize = true;
+            labelRecord.ForeColor = SystemColors.WindowText;
+            labelRecord.Location = new Point(684, 40);
+            labelRecord.MinimumSize = new Size(100, 25);
+            labelRecord.Name = "labelRecord";
+            labelRecord.Size = new Size(100, 25);
+            labelRecord.TabIndex = 21;
+            labelRecord.Text = "0";
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(16F, 40F);
+            AutoScaleDimensions = new SizeF(11F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(1278, 944);
-            Controls.Add(label5);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(LabelPoints);
-            Controls.Add(LabelRecord);
+            Controls.Add(labelRecord);
+            Controls.Add(labelScore);
+            Controls.Add(tableLayoutPanelField);
+            Controls.Add(LabelVeiwScore);
+            Controls.Add(LabelViewRecord);
             Controls.Add(LabelBorder);
             Controls.Add(ButtonRulesGame);
             Controls.Add(ButtionRestart);
@@ -207,12 +194,10 @@
         private Button ButtionRestart;
         private Button ButtonRulesGame;
         private Label LabelBorder;
-        private Label LabelRecord;
-        private Label LabelPoints;
-        private Label label1;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private Label label5;
+        private Label LabelViewRecord;
+        private Label LabelVeiwScore;
+        private TableLayoutPanel tableLayoutPanelField;
+        private Label labelScore;
+        private Label labelRecord;
     }
 }
