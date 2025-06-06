@@ -2,7 +2,7 @@ namespace _2048WinFormsApp
 {
     public partial class MainForm : Form
     {
-        //private Label[,] _labelCells;
+        private Label[,] _labelCells;
         private List<Label> _labels;
         private bool _gameStatus = true;
 
