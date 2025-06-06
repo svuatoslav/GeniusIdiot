@@ -1,25 +1,23 @@
-using System.Collections.Generic;
-
 namespace _2048WinFormsApp
 {
     public partial class MainForm : Form
     {
-        private Label[,] _labelCells;
+        //private Label[,] _labelCells;
         private List<Label> _labels;
-        private bool GameStatus = true;
+        private bool _gameStatus = true;
 
         public MainForm()
         {
             InitializeComponent();
-            SettingGame();
+            InitializeGame();
         }
 
-        private void SettingGame(int rows = 4, int columns = 4)
+        private void InitializeGame(int rows = 4, int columns = 4)
         {
             //_labelCells = new Label[rows, columns];
             _labels = new List<Label>(Math.Max(rows, columns));
 
-            FieldGeneration(LabelCell, tableLayoutPanelField, rows, columns);
+            GenerateGameField(LabelCell, tableLayoutPanelField, rows, columns);
             //FieldGeneration(LabelCell, rows, columns);
 
             this.Controls.Remove(LabelCell);
@@ -28,11 +26,13 @@ namespace _2048WinFormsApp
 
             this.KeyPreview = true;
             this.KeyDown += MainForm_KeyDown;
+
+            LoadBestScore();
         }
 
         private void MainForm_KeyDown(object? sender, KeyEventArgs e)
         {
-            if (GameStatus)
+            if (_gameStatus)
             {
                 switch (e.KeyCode)
                 {
@@ -104,31 +104,31 @@ namespace _2048WinFormsApp
             }
         }
 
-        private void FieldGeneration(Label exemplar, TableLayoutPanel tableLayoutPanel, int rows, int columns)
+        private void GenerateGameField(Label template, TableLayoutPanel panel, int rows, int columns)
         {
             for (int row = 0; row < rows; row++)
             {
                 for (int col = 0; col < columns; col++)
                 {
-                    var label = CloneLabel(exemplar);
+                    var label = CloneLabel(template);
                     label.Name = $"LabelCell_{row}_{col}";
 
-                    tableLayoutPanel.Controls.Add(CloneLabel(LabelCell), col, row);
+                    panel.Controls.Add(CloneLabel(LabelCell), col, row);
                 }
             }
         }
 
-        private Label CloneLabel(Label exemplar)
+        private Label CloneLabel(Label original)
         {
             return new Label
             {
-                BackColor = exemplar.BackColor,
-                Font = (Font)exemplar.Font.Clone(),
-                Size = exemplar.Size,
-                Text = exemplar.Text,
-                TextAlign = exemplar.TextAlign,
-                MinimumSize = exemplar.MinimumSize,
-                AutoSize = exemplar.AutoSize
+                BackColor = original.BackColor,
+                Font = (Font)original.Font.Clone(),
+                Size = original.Size,
+                Text = original.Text,
+                TextAlign = original.TextAlign,
+                MinimumSize = original.MinimumSize,
+                AutoSize = original.AutoSize
             };
         }
 
@@ -181,10 +181,9 @@ namespace _2048WinFormsApp
                 labels[index].Text = "4";
         }
 
-        private void SaveResult()
-        {
-
-        }
+        private void SaveBestScore(int score) => JSONManager.WriteJSON(StoragePath.ProjectPath, score); 
+        
+        private void LoadBestScore() => labelRecord.Text = JSONManager.ReadJSON<int>(StoragePath.ProjectPath)?.ToString() ?? "0";
 
         private void CheckGame()
         {
@@ -192,12 +191,17 @@ namespace _2048WinFormsApp
 
             if (emptyCells.Count == 0)
             {
-                GameStatus = false;
-                SaveResult();
+                _gameStatus = false;
+                SaveBestScore(int.Parse(labelRecord.Text));
                 MessageBox.Show("Игра окончена");
             }
             else
                 NumberGeneration(emptyCells);
+        }
+
+        private bool CheckMerger()
+        {
+            return true;
         }
 
         private void ChangingGamePoints(int count)
@@ -210,24 +214,29 @@ namespace _2048WinFormsApp
                         labelRecord.Text = labelScore.Text; // из-за ссылки при перезапуске
             }
         }
-
-        private void ButtionRestart_Click(object sender, EventArgs e)
+        private void RestartGame()
         {
-            GameStatus = true;
+            _gameStatus = true;
             labelScore.Text = "0";
 
-            foreach (Label cell in tableLayoutPanelField.Controls )
-                cell.Text = "0";
+            foreach (Label tile in tableLayoutPanelField.Controls)
+                tile.Text = "0";
 
             NumberGeneration(tableLayoutPanelField.Controls.OfType<Label>().Where(label => label.Text == "0").ToList());
         }
 
-        private void ButtonExit_Click(object sender, EventArgs e) => Application.Exit();
+        private void ButtionRestart_Click(object sender, EventArgs e) => RestartGame();
+
+        private void ButtonExit_Click(object sender, EventArgs e)
+        {
+            SaveBestScore(int.Parse(labelRecord.Text));
+            Application.Exit();
+        }
 
         private void ButtonRulesGame_Click(object sender, EventArgs e)
         {
-            RulesGameForm RGF = new();
-            RGF.ShowDialog();
+            var rulesForm = new RulesGameForm();
+            rulesForm.ShowDialog();
         }
     }
 }
