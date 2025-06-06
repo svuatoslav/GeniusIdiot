@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeniusIdiot.Common")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcc4001bae0c6b3871f5e07dddddb148177a7e16")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+8b54f2935b62bee475e8fb91c2d9c1346440d501")]
 [assembly: System.Reflection.AssemblyProductAttribute("GeniusIdiot.Common")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GeniusIdiot.Common")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
