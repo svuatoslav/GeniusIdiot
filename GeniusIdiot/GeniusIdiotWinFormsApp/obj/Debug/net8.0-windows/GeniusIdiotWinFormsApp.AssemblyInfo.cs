@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GeniusIdiotWinFormsApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2e0c77f2ca8d5b0411c908e60d9024770335dd00")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+fcc4001bae0c6b3871f5e07dddddb148177a7e16")]
 [assembly: System.Reflection.AssemblyProductAttribute("GeniusIdiotWinFormsApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GeniusIdiotWinFormsApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
